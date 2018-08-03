@@ -3,10 +3,13 @@ const cors = require('cors')
 const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const students = require('./routes/students-profile')
 
 app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use('/students', students)
+
 
 app.get('/', (req, res) => {
     res.send('Hello Earth!');
