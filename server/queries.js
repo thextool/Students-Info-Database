@@ -12,5 +12,10 @@ module.exports = {
         return db('student')
         .where('last_name', lastName)
         .select('*')
+    },
+    addStudent(student) {
+        return db('student').insert(student).returning('*')
+            .then(record => record[0])
     }
+
 }

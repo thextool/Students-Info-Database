@@ -23,6 +23,14 @@ router.get('/lastname/:last_name', (req, res, next) => {
     .catch(next)
 })
 
+router.post('/', (req, res, next) => {
+    queries.addStudent(req.body)
+        .then((newStudent) => {
+            res.status(201).json({newStudent})
+        })
+        .catch(next)
+})
+
 
 
 module.exports = router
